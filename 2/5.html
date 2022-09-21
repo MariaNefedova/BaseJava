@@ -50,9 +50,8 @@ Infinity делать не нужно, однако, в случае если б
   function difference(a, b) {
     if (a > b) {
       return (a - b);
-    } else {
-      return (b - a);
     }
+    return (b - a);
   }
   /**
    * Считает произведение переданных аргументов.
@@ -84,15 +83,17 @@ Infinity делать не нужно, однако, в случае если б
   function mathOperation(arg1, arg2, operation) {
     if (operation === '+') {
       return addition(arg1, arg2);   
-    } else if (operation === '-') {
+    } 
+    if (operation === '-') {
       return difference(arg1, arg2);
-    } else if (operation === '*') {
-      return multiplication(arg1, arg2);
-    } else if (operation === '/') {
-      return division(arg1, arg2);
-    } else {
-      return NaN;
     }
+    if (operation === '*') {
+      return multiplication(arg1, arg2);
+    } 
+    if (operation === '/') {
+      return division(arg1, arg2);
+    }
+    return NaN;
   }
 
   console.log(mathOperation(5, 3, "+")); // 8
