@@ -32,15 +32,15 @@
   "use strict";
 
   function getDigitsOfNumber(number) {
-    if(Number.isInteger(number) === false || (number >= 1000) || (number < 0)) {
+    if (!Number.isInteger(number) || (number >= 1000) || (number < 0)) {
       console.error('Вы ввели неверные данные');
       return {};
     }
 
     return {
-      units: number%10,
-      dozens: Math.floor(number/10)%10, 
-      hundreds: Math.floor(number/100),
+      units: number % 10,
+      dozens: Math.floor(number / 10) % 10,     
+      hundreds: Math.floor(number / 100),
     };
   }
 

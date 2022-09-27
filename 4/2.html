@@ -55,13 +55,13 @@
   function PostES5(author, text) {
     this.author = author;
     this.text = text;
-    this.date = new Date;
+    this.date = new Date();
   }
 
   PostES5.prototype.edit = function(text) {
     this.text = text;
-    this.date = new Date;
-  }
+    this.date = new Date();
+  };
 
   const post1 = new PostES5('Мария', 'Моя любимая музыка');
   console.log(post1);
@@ -76,7 +76,8 @@
   AttachedPostES5.prototype = Object.create(PostES5.prototype);
   AttachedPostES5.prototype.makeTextHighlighted = function() {
     this.highlighted = true;
-  }
+    this.date = new Date();
+  };
 
   const attachedPost1 = new AttachedPostES5('Мария', 'Моя любимая музыка');
   console.log(attachedPost1);
@@ -91,11 +92,11 @@
     constructor(author, text) {
       this.author = author;
       this.text = text;
-      this.date = new Date;
+      this.date = new Date();
     }
     edit(text) {
       this.text = text;
-      this.date = new Date;
+      this.date = new Date();
     }
   }
 
@@ -105,13 +106,15 @@
   console.log(post2);
 
   class AttachedPostES6 extends PostES6 {
+    highlighted = false;
+
     constructor(author, text) {
-      super(author, text);
-      this.highlighted = false;
+      super(author, text);  
     }
     
     makeTextHighlighted() {
       this.highlighted = true;
+      this.date = new Date();
     };
   }
 
